@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import eazyshop from '../../assets/eazyshop.svg'
 import '../../index.css'
+import Layout from '../Layout'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,6 +25,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <Layout />
     </>
   )
 }
