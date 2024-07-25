@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Outlet, createBrowserRouter } from "react-router-dom";
 import { Route, createRoutesFromElements, RouterProvider } from "react-router-dom";
 
 // import pages 
@@ -9,7 +9,7 @@ import RootLayout from "../Layout";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-    
+      
       
     </Route>
   )
