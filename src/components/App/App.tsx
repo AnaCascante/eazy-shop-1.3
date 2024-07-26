@@ -3,15 +3,19 @@ import { Route, createRoutesFromElements, RouterProvider } from "react-router-do
 
 // import pages 
 import RootLayout from "../Layout";
+import HomePage from "../../pages/HomePage";
+import ProductPage from "../../pages/ProductPage";
 
 // import components
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      
-      
-    </Route>
+      <Route index element={<HomePage />} />
+      <Route path="product/:id" element={<ProductPage />} />
+     
+      </Route>
+
   )
 );
 
