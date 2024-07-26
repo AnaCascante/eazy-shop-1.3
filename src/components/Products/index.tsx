@@ -24,7 +24,7 @@ type Product = {
   reviews: Review[];
 };
 
-const Products: React.FC = () => {
+const DataFetchingComponent: React.FC = () => {
   const [data, setData] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -56,29 +56,40 @@ const Products: React.FC = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-      <div className="">
-        {data.map((item) => (
-          <div key={item.id}>
-            <img
-              className="object-cover rounded-md h-48 w-48"
-              src={item.image.url}
-              alt={item.image.alt}
-            />
-            <h2 className="text-base font-medium pt-2">{item.title}</h2>
-            <p>{item.description}</p>
-            <p className=" font-medium pt-2 ">Price: ${item.price}</p>
-            <p>Discounted Price: ${item.discountedPrice}</p>
-            <p className=" font-medium pt-2 ">Rating: {item.rating}</p>
-            <Link
-              to={`/product/${item.id}`}
-              className="bg-brown text-white px-4 py-2 rounded ml-0 m-4 inline-block "
-            >
-              View product
-            </Link>
+    <div className="">
+      {data.map((item) => (
+        <div key={item.id}>
+          <img
+            className="object-cover rounded-md h-48 w-48"
+            src={item.image.url}
+            alt={item.image.alt}
+          />
+          <h2 className="text-base font-medium pt-2">{item.title}</h2>
+          <p>{item.description}</p>
+          <p className=" font-medium pt-2 ">Price: ${item.price}</p>
+          <p>Discounted Price: ${item.discountedPrice}</p>
+          <p className=" font-medium pt-2 ">Rating: {item.rating}</p>
+          <div>
+            <h3>Reviews</h3>
+            {item.reviews.map((review) => (
+              <div key={review.id}>
+                <p>
+                  {review.username}: {review.rating} stars
+                </p>
+                <p>{review.description}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    );
-  };
+          <Link
+            to={`/product/${item.id}`}
+            className="bg-gray-200 hover:text-pink-500 px-4 py-2 rounded ml-0 m-4 inline-block "
+          > 
+            View product
+          </Link>
+        </div>
+      ))}
+    </div>
+  );
+};
 
-export default Products;
+export default DataFetchingComponent;
