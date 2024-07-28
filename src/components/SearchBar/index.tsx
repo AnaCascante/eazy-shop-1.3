@@ -38,7 +38,7 @@ useEffect(() => {
 
     const fetchSuggestions = (searchTerm, products) => {
        return products.filter((product) => 
-         product.title.toLowerCase().includes(searchTerm.toLowerCase());
+         product.title.toLowerCase().includes(searchTerm.toLowerCase())
     };
 
     const handleSearchClick = () => {
