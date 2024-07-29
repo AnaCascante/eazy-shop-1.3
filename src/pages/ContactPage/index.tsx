@@ -5,7 +5,7 @@ import Form from "../../components/Form";
 const ContactPage = () => {
   return (
     <div>
-      <Form/>
+      <Form />
     </div>
   );
 };
