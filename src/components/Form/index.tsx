@@ -8,7 +8,10 @@ const Form = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data: FieldValues) => console.log(data);
+  const onSubmit = (data: FieldValues) => {
+    console.log(data);
+    alert("Your message has been sent. We will contact you soon!");
+  };
 
   return (
     <div className="flex justify-center pt-3">
@@ -38,7 +41,7 @@ const Form = () => {
         </div>
 
         <div className="mb-5">
-          <label htmlFor="text" className="block mb-2 text-sm">
+          <label htmlFor="subject" className="block mb-2 text-sm">
             Subject
           </label>
           <input
