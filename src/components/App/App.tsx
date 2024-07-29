@@ -5,6 +5,8 @@ import { Route, createRoutesFromElements, RouterProvider } from "react-router-do
 import RootLayout from "../Layout";
 import HomePage from "../../pages/HomePage";
 import ProductPage from "../../pages/ProductPage";
+import ContactPage from "../../pages/ContactPage";
+
 
 // import components
 
@@ -13,7 +15,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<HomePage />} />
       <Route path="product/:id" element={<ProductPage />} />
-     
+     <Route path="contact" element={<ContactPage />} />
       </Route>
 
   )
@@ -25,6 +27,7 @@ function App() {
       
     </RouterProvider>
   );
-}
+}; 
+
 
 export default App;
