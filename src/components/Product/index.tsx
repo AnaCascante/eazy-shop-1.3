@@ -37,7 +37,7 @@ const Product: React.FC<ProductProps> = ({
       <p className="mb-4">Rating: {rating}</p>
       <Link
         to={`/product/${id}`}
-        className="bg-blue-500 text-white px-4 py-2 rounded"
+        className= "bg-gray-200 hover:text-pink-500 px-4 py-2 rounded ml-0 m-4 inline-block"
       >
         View product
       </Link>

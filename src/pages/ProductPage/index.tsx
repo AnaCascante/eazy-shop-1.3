@@ -85,7 +85,7 @@ const ProductPage: React.FC = () => {
             quantity: 1,
           })
         }
-        className="bg-brown text-white px-4 py-2 rounded mb-4"
+        className="bg-gray-200 text-blue-500 hover:text-pink-500 px-4 py-2 rounded ml-0 m-4 inline-block "
       >
         Add to Cart
       </button>

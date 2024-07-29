@@ -6,6 +6,7 @@ import RootLayout from "../Layout";
 import HomePage from "../../pages/HomePage";
 import ProductPage from "../../pages/ProductPage";
 import ContactPage from "../../pages/ContactPage";
+import CheckoutPage from "../../pages/CheckoutPage";
 
 
 // import components
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
       <Route path="product/:id" element={<ProductPage />} />
       <Route path="ContactPage" element={<ContactPage />} />
       </Route>
+      <Route path="CheckoutPage" element={<CheckoutPage />} />
 
   )
 );
