@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useCart } from "../../hooks/useCart";
 
 type Image = {
   url: string;
@@ -27,6 +28,7 @@ type ProductType = {
 };
 
 const ProductPage: React.FC = () => {
+  const { addToCart } = useCart();
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<ProductType | null>(null);
   const [loading, setLoading] = useState(true);

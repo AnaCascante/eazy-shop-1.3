@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
-import { useCart } from '../hooks/useCart';
+import { useCart } from '../../hooks/useCart';
 
 const CartIcon: React.FC = () => {
   const { cartItems } = useCart();
