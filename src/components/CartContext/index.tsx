@@ -8,12 +8,12 @@ interface CartItem {
 }
 
 interface CartContextProps {
-    cart: CartItem[];
-    addToCart: (item: CartItem) => void;
-    removeFromCart: (id: number) => void;
-    totalItems: number;
-    totalCost: number;
-    }
+  cart: CartItem[];
+  addToCart: (item: CartItem) => void;
+  removeFromCart: (id: number) => void;
+  totalItems: number;
+  totalCost: number;
+}
 
 export const CartContext = createContext<CartContextProps | undefined>(undefined);
 
@@ -52,4 +52,3 @@ export const useCart = () => {
   }
   return context;
 };
-
