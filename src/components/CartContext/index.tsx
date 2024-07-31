@@ -15,7 +15,7 @@ interface CartContextProps {
     totalCost: number;
     }
 
-const CartContext = createContext<CartContextProps | undefined>(undefined);
+export const CartContext = createContext<CartContextProps | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
@@ -52,3 +52,4 @@ export const useCart = () => {
   }
   return context;
 };
+

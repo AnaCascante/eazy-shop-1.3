@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-type ProductProps = {
+type ItemProps = {
   id: string;
   title: string;
   image: {
@@ -14,7 +14,7 @@ type ProductProps = {
   rating: number;
 };
 
-const Product: React.FC<ProductProps> = ({
+const Product: React.FC<ItemProps> = ({
   id,
   title,
   image,

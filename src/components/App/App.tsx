@@ -1,3 +1,4 @@
+import React from "react";
 import { Outlet, createBrowserRouter } from "react-router-dom";
 import { Route, createRoutesFromElements, RouterProvider } from "react-router-dom";
 
@@ -27,9 +28,11 @@ const router = createBrowserRouter(
 
 function App() {
   return (
+    <CartProvider>
     <RouterProvider router={router}>
       
     </RouterProvider>
+    </CartProvider>
   );
 }; 
 
