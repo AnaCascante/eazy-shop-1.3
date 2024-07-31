@@ -1,6 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import React from 'react';
+
+interface ItemProps {
+  item: string; // or the appropriate type
+}
+
+const ItemComponent: React.FC<ItemProps> = ({ item }) => {
+  return <div>{item}</div>;
+};
+
+export default ItemComponent;
+
 type ItemProps = {
   id: string;
   title: string;
