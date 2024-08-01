@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-const ItemComponent: React.FC<ItemProps> = ({ item }) => {
-  return <div>{JSON.stringify(item)}</div>;
+const ProductComponent: React.FC<ProductProps> = ({ product }) => {
+  return <div>{JSON.stringify(product)}</div>;
 };
 
-interface ItemProps {
+interface ProductProps {
   id: string;
-  item: {
+  product: {
     id: string;
     title: string;
     image: {
@@ -24,17 +24,17 @@ interface ItemProps {
   rating: number; // Add the 'rating' property here
 }
 
-const Product: React.FC<ItemProps & { price: number }> = ({
+const Product: React.FC<ProductProps & { price: number }> = ({
   id,
-  item,
-  item: { image, description },
+  product,
+  product: { image, description },
   price,
   discountedPrice,
   rating,
 }) => {
   return (
     <div className="border rounded-lg p-4 mb-4">
-      <h2 className="text-2xl font-bold mb-2">{item.title}</h2>
+      <h2 className="text-2xl font-bold mb-2">{product.title}</h2>
       <img
         className="w-full h-64 object-cover mb-4"
         src={image.url}
@@ -54,4 +54,4 @@ const Product: React.FC<ItemProps & { price: number }> = ({
   );
 }
 
-export { ItemComponent, Product };
+export { ProductComponent, Product };

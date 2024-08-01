@@ -1,28 +1,31 @@
-import React from 'react';
 import { useCart } from '../../components/CartContext';
 import { useNavigate } from 'react-router-dom';
 
 const CheckoutPage: React.FC = () => {
-  const { cart, totalCost, removeFromCart } = useCart();  
+  const { cart, totalCost, clearCart } = useCart();  
   const navigate = useNavigate();
 
   const handleCheckout = () => {
-    removeFromCart ();  
-    navigate('/');  
+    clearCart();  
+    navigate('/CheckoutSuccessPage');  
   };
 
   return (
     <div className="p-4">
       <h1 className="text-2xl mb-4">Checkout</h1>
       <ul className="mb-4">
-        {cart.map((item) => (
-          <li key={item.id} className="mb-2">
-            {item.name} - {item.quantity} x ${item.price}
+        {cart.map((product) => (
+          <li key={product.id} className="mb-2 flex items-center">
+            <img src={product.imageUrl} alt={product.name} className="w-16 h-16 mr-4" />
+            <div>
+              <p>{product.name}</p>
+              <p>{product.quantity} x ${product.price}</p>
+            </div>
           </li>
         ))}
       </ul>
       <div className="text-xl font-bold mb-4">Total: ${totalCost.toFixed(2)}</div>
-      <button className=" hover:bg-pink-500 px-4 py-2" onClick={handleCheckout}>Proceed to Checkout</button>
+      <button className="text-blue-800 hover:text-white bg-pink-500 px-4 py-2" onClick={handleCheckout}>Proceed to Checkout</button>
     </div>
   );
 };
