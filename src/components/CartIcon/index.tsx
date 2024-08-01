@@ -1,11 +1,10 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useCart } from '../../hooks/useCart';
 
 const CartIcon: React.FC = () => {
   const { cart } = useCart();
-  const cartCount = cart.reduce((count, item) => count + item.quantity, 0);
+  const cartCount = cart.reduce((count, product) => count + product.quantity, 0);
 
   return (
     <Link to="/CheckoutPage" className="relative">

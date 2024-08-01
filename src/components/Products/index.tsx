@@ -57,21 +57,21 @@ const DataFetchingComponent: React.FC = () => {
 
   return (
     <div className="">
-      {data.map((item) => (
-        <div key={item.id}>
+      {data.map((product) => (
+        <div key={product.id}>
           <img
             className="object-cover rounded-md h-48 w-48"
-            src={item.image.url}
-            alt={item.image.alt}
+            src={product.image.url}
+            alt={product.image.alt}
           />
-          <h2 className="text-base font-medium pt-2">{item.title}</h2>
-          <p>{item.description}</p>
-          <p className=" font-medium pt-2 ">Price: ${item.price}</p>
-          <p>Discounted Price: ${item.discountedPrice}</p>
-          <p className=" font-medium pt-2 ">Rating: {item.rating}</p>
+          <h2 className="text-base font-medium pt-2">{product.title}</h2>
+          <p>{product.description}</p>
+          <p className=" font-medium pt-2 ">Price: ${product.price}</p>
+          <p>Discounted Price: ${product.discountedPrice}</p>
+          <p className=" font-medium pt-2 ">Rating: {product.rating}</p>
           <div>
             <h3>Reviews</h3>
-            {item.reviews.map((review) => (
+            {product.reviews.map((review) => (
               <div key={review.id}>
                 <p>
                   {review.username}: {review.rating} stars
@@ -81,7 +81,7 @@ const DataFetchingComponent: React.FC = () => {
             ))}
           </div>
           <Link
-            to={`/product/${item.id}`}
+            to={`/product/${product.id}`}
             className="bg-gray-200 hover:text-pink-500 px-4 py-2 rounded ml-0 m-4 inline-block "
           > 
             View product

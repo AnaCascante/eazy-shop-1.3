@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import CartIcon from "../CartIcon";
 import eazyshop from "../../assets/eazyshop.svg";

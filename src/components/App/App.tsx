@@ -1,5 +1,4 @@
-import React from "react";
-import { Outlet, createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import { Route, createRoutesFromElements, RouterProvider } from "react-router-dom";
 
 // import pages 
@@ -7,6 +6,7 @@ import HomePage from "../../pages/HomePage";
 import ProductPage from "../../pages/ProductPage";
 import ContactPage from "../../pages/ContactPage";
 import CheckoutPage from "../../pages/CheckoutPage";
+import CheckoutSuccessPage from "../../pages/CheckoutSuccessPage";
 
 
 // import components
@@ -20,6 +20,8 @@ const router = createBrowserRouter(
       <Route path="product/:id" element={<ProductPage />} />
       <Route path="ContactPage" element={<ContactPage />} />
       <Route path="CheckoutPage" element={<CheckoutPage />} />
+      <Route path= "CheckoutSuccessPage" element={<CheckoutSuccessPage />} />
+      <Route path="*" element={<h1>Not Found</h1>} />
       </Route>
       
 
