@@ -1,43 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import React from 'react';
-
-interface ItemProps {
-  item: string; // or the appropriate type
-}
 
 const ItemComponent: React.FC<ItemProps> = ({ item }) => {
-  return <div>{item}</div>;
+  return <div>{JSON.stringify(item)}</div>;
 };
 
-export default ItemComponent;
-
-type ItemProps = {
+interface ItemProps {
   id: string;
-  title: string;
-  image: {
-    url: string;
-    alt: string;
+  item: {
+    id: string;
+    title: string;
+    image: {
+      url: string;
+      alt: string;
+    };
+    description: string;
+    price: number;
+    discountedPrice: number;
+    rating: number;
   };
-  description: string;
-  price: number;
   discountedPrice: number;
-  rating: number;
-};
+  rating: number; // Add the 'rating' property here
+}
 
-const Product: React.FC<ItemProps> = ({
+const Product: React.FC<ItemProps & { price: number }> = ({
   id,
-  title,
-  image,
-  description,
+  item,
+  item: { image, description },
   price,
   discountedPrice,
   rating,
 }) => {
   return (
     <div className="border rounded-lg p-4 mb-4">
-      <h2 className="text-2xl font-bold mb-2">{title}</h2>
+      <h2 className="text-2xl font-bold mb-2">{item.title}</h2>
       <img
         className="w-full h-64 object-cover mb-4"
         src={image.url}
@@ -55,6 +52,6 @@ const Product: React.FC<ItemProps> = ({
       </Link>
     </div>
   );
-};
+}
 
-export default Product;
+export { ItemComponent, Product };
