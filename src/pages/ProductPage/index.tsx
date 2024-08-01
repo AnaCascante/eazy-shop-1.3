@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useCart } from "../../hooks/useCart";
 
 type Image = {
   url: string;
@@ -27,6 +28,7 @@ type ProductType = {
 };
 
 const ProductPage: React.FC = () => {
+  const { addToCart } = useCart();
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<ProductType | null>(null);
   const [loading, setLoading] = useState(true);
@@ -85,7 +87,7 @@ const ProductPage: React.FC = () => {
             quantity: 1,
           })
         }
-        className="bg-brown text-white px-4 py-2 rounded mb-4"
+        className="bg-gray-200 text-blue-500 hover:text-pink-500 px-4 py-2 rounded ml-0 m-4 inline-block "
       >
         Add to Cart
       </button>

@@ -7,7 +7,7 @@ export default function RootLayout() {
   return (
     <div className="flex flex-col m-h-screen">
       <Header />
-    <main className="flex-grow flex items-center justify-center w-full mt-8">   
+    <main className="flex-grow flex items-center justify-center w-full mt-20">   
         <Outlet />
     </main>
       <Footer />

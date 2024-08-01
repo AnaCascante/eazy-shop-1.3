@@ -1,31 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-type ProductProps = {
-  id: string;
-  title: string;
-  image: {
-    url: string;
-    alt: string;
-  };
-  description: string;
-  price: number;
-  discountedPrice: number;
-  rating: number;
+
+const ItemComponent: React.FC<ItemProps> = ({ item }) => {
+  return <div>{JSON.stringify(item)}</div>;
 };
 
-const Product: React.FC<ProductProps> = ({
+interface ItemProps {
+  id: string;
+  item: {
+    id: string;
+    title: string;
+    image: {
+      url: string;
+      alt: string;
+    };
+    description: string;
+    price: number;
+    discountedPrice: number;
+    rating: number;
+  };
+  discountedPrice: number;
+  rating: number; // Add the 'rating' property here
+}
+
+const Product: React.FC<ItemProps & { price: number }> = ({
   id,
-  title,
-  image,
-  description,
+  item,
+  item: { image, description },
   price,
   discountedPrice,
   rating,
 }) => {
   return (
     <div className="border rounded-lg p-4 mb-4">
-      <h2 className="text-2xl font-bold mb-2">{title}</h2>
+      <h2 className="text-2xl font-bold mb-2">{item.title}</h2>
       <img
         className="w-full h-64 object-cover mb-4"
         src={image.url}
@@ -37,12 +46,12 @@ const Product: React.FC<ProductProps> = ({
       <p className="mb-4">Rating: {rating}</p>
       <Link
         to={`/product/${id}`}
-        className="bg-blue-500 text-white px-4 py-2 rounded"
+        className= "bg-gray-200 hover:text-pink-500 px-4 py-2 rounded ml-0 m-4 inline-block"
       >
         View product
       </Link>
     </div>
   );
-};
+}
 
-export default Product;
+export { ItemComponent, Product };

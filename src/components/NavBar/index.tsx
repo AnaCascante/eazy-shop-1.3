@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
+import CartIcon from "../CartIcon";
 import eazyshop from "../../assets/eazyshop.svg";
 import SearchBar from "../SearchBar";
 
@@ -18,7 +18,7 @@ function NavBar() {
          
       </div>
       <div className="flex items-center space-x-4 mr-4">
-         <NavLink to="/CheckoutPage" className="hover:text-pink-500 m-0.5"><FaShoppingCart /></NavLink>
+         <CartIcon />
       </div> 
     </nav>
   );
