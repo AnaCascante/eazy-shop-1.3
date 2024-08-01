@@ -25,7 +25,7 @@ const CheckoutPage: React.FC = () => {
         ))}
       </ul>
       <div className="text-xl font-bold mb-4">Total: ${totalCost.toFixed(2)}</div>
-      <button className=" text-white hover:bg-pink-500 px-4 py-2" onClick={handleCheckout}>Proceed to Checkout</button>
+      <button className="text-blue-800 hover:text-white bg-pink-500 px-4 py-2" onClick={handleCheckout}>Proceed to Checkout</button>
     </div>
   );
 };
