@@ -60,11 +60,6 @@ const SearchBar: React.FC = () => {
     setSearchTerm(event.target.value);
   };
 
-  const handleSearchClick = () => {
-    if (searchTerm) {
-      navigate(`/search?query=${searchTerm}`);
-    }
-  };
 
   const handleSuggestionClick = (suggestion: Product) => {
     setSearchTerm(suggestion.title);
