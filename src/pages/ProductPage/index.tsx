@@ -85,6 +85,8 @@ const ProductPage: React.FC = () => {
             title: product.title,
             price: product.price,
             quantity: 1,
+            name: "",
+            imageUrl: ""
           })
         }
         className="bg-gray-200 text-blue-500 hover:text-pink-500 px-4 py-2 rounded ml-0 m-4 inline-block "
