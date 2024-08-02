@@ -6,7 +6,7 @@ export interface CartProduct {
   name: string;
   price: number;
   quantity: number;
-  imageUrl: string;
+  image: { url: string; alt: string };
 }
 
 export interface CartContextProps {
