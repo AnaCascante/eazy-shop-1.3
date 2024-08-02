@@ -16,9 +16,9 @@ const CheckoutPage: React.FC = () => {
       <ul className="mb-4">
         {cart.map((product) => (
           <li key={product.id} className="mb-2 flex items-center">
-            <img src={product.imageUrl} alt={product.name} className="w-16 h-16 mr-4" />
+            <img src={product.image.url} alt={product.image.alt} className="w-16 h-16 mr-4" />
             <div>
-              <p>{product.name}</p>
+              <p>{product.title}</p>
               <p>{product.quantity} x ${product.price}</p>
             </div>
           </li>
