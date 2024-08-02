@@ -13,41 +13,41 @@ interface Product {
   reviews: { id: string; username: string; rating: number; description: string }[];
 }
 
+const fetchProducts = async (): Promise<Product[]> => {
+  try {
+    const response = await fetch('https://v2.api.noroff.dev/online-shop');
+    const data = await response.json();
+    if (Array.isArray(data)) {
+      return data;
+    } else {
+      console.error('Unexpected response data format:', data);
+      return [];
+    }
+  } catch (error) {
+    console.error('Error fetching products', error);
+    return [];
+  }
+};
+
 const SearchBar: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [suggestions, setSuggestions] = useState<Product[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch('https://v2.api.noroff.dev/online-shop');
-        const data = await response.json();
-        if (Array.isArray(data)) {
-          setProducts(data);
-        } else {
-          setProducts([]);
-          console.error('Unexpected response data format:', data);
-        }
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching products', error);
-        setLoading(false);
-      }
+    const loadProducts = async () => {
+      const products = await fetchProducts();
+      setProducts(products);
+      setLoading(false);
     };
-    fetchProducts();
+    loadProducts();
   }, []);
 
   useEffect(() => {
-    if (searchTerm !== '') {
-      const results = fetchSuggestions(searchTerm, products);
-      setSuggestions(results);
-    } else {
-      setSuggestions([]);
-    }
+    const results = searchTerm ? fetchSuggestions(searchTerm, products) : [];
+    setSuggestions(results);
   }, [searchTerm, products]);
 
   const fetchSuggestions = (searchTerm: string, products: Product[]): Product[] => {
@@ -56,14 +56,14 @@ const SearchBar: React.FC = () => {
     );
   };
 
-  const handleSearchClick = () => {
-    if (searchTerm !== '' && suggestions.length > 0) {
-      navigate(`/product/${suggestions[0].id}`);
-    }
-  };
-
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
+  };
+
+  const handleSearchClick = () => {
+    if (searchTerm) {
+      navigate(`/search?query=${searchTerm}`);
+    }
   };
 
   const handleSuggestionClick = (suggestion: Product) => {
