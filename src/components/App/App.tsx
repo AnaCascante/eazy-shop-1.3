@@ -7,6 +7,7 @@ import ProductPage from "../../pages/ProductPage";
 import ContactPage from "../../pages/ContactPage";
 import CheckoutPage from "../../pages/CheckoutPage";
 import CheckoutSuccessPage from "../../pages/CheckoutSuccessPage";
+import SearchPage from "../../pages/SearchPage";
 
 
 // import components
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<HomePage />} />
       <Route path="product/:id" element={<ProductPage />} />
+      <Route  path="/search" element={<SearchPage />} />
       <Route path="ContactPage" element={<ContactPage />} />
       <Route path="CheckoutPage" element={<CheckoutPage />} />
       <Route path= "CheckoutSuccessPage" element={<CheckoutSuccessPage />} />

@@ -21,7 +21,7 @@ interface ProductProps {
     rating: number;
   };
   discountedPrice: number;
-  rating: number; // Add the 'rating' property here
+  rating: number; 
 }
 
 const Product: React.FC<ProductProps & { price: number }> = ({
