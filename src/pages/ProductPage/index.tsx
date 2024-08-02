@@ -87,7 +87,7 @@ const ProductPage: React.FC = () => {
             price: product.price,
             quantity: 1,
             name: "",
-            image: { url: product.image.url, alt: product.image.alt },gi
+            image: { url: product.image.url, alt: product.image.alt },
           })
         }
         className="bg-gray-200 text-blue-500 hover:text-pink-500 px-4 py-2 rounded ml-0 m-4 inline-block "
