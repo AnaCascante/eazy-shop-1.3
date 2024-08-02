@@ -49,7 +49,7 @@ const SearchResultsPage: React.FC = () => {
             <li key={product.id}>
               <h2>{product.title}</h2>
               <p>{product.description}</p>
-              {/* Add more details as needed */}
+              
             </li>
           ))}
         </ul>

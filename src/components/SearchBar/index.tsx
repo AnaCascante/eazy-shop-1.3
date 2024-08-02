@@ -1,4 +1,3 @@
-import { FaSearch } from 'react-icons/fa';
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,7 +15,8 @@ interface Product {
 const fetchProducts = async (): Promise<Product[]> => {
   try {
     const response = await fetch('https://v2.api.noroff.dev/online-shop');
-    const data = await response.json();
+    const json = await response.json();
+    const data = json.data;
     if (Array.isArray(data)) {
       return data;
     } else {
@@ -85,9 +85,7 @@ const SearchBar: React.FC = () => {
         value={searchTerm}
         onChange={handleSearchChange}
       />
-      <button onClick={handleSearchClick} className="p-2">
-        <FaSearch className="text-xl" />
-      </button>
+  
       {suggestions.length > 0 && (
         <div className="absolute top-12 w-full bg-white border border-gray-300 rounded">
           {suggestions.map((suggestion) => (
