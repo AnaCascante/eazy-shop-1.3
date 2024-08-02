@@ -1,14 +1,15 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-interface CartProduct {
+export interface CartProduct {
   id: string;
+  title: string;
   name: string;
   price: number;
   quantity: number;
   imageUrl: string;
 }
 
-interface CartContextProps {
+export interface CartContextProps {
   cart: CartProduct[];
   addToCart: (product: CartProduct) => void; 
   removeFromCart: (id: string) => void;
