@@ -72,9 +72,9 @@ const SearchBar: React.FC = () => {
   }
 
   return (
-    <div className="relative items-center">
+    <div className="relative items-center w-full sm:w-auto">
       <input
-        className="items-center border border-black rounded p-2"
+        className="w-full border border-black rounded p-1 sm:p-2 text-xs sm:text-sm md:text-base"
         type="text"
         placeholder="Search..."
         value={searchTerm}
